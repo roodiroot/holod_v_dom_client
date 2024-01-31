@@ -47,6 +47,7 @@ const ProductsList = () => {
                   title={i.name}
                   price={i.price}
                   logo={i.logo}
+                  img={i.img}
                   options={i.options.filter(
                     (i) =>
                       i.title === "Площадь помещения: м²." ||

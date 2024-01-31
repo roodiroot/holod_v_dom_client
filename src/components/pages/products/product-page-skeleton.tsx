@@ -1,10 +1,12 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import { HtmlHTMLAttributes } from "react";
+import SliderPageSkeleton from "./slider-page-skeleton";
+
 interface ProductPageSkeletonProps
   extends React.HtmlHTMLAttributes<HTMLElement> {
   error?: Error;
   message?: string;
 }
+
 const ProductPageSkeleton: React.FC<ProductPageSkeletonProps> = ({
   error,
   message,
@@ -22,25 +24,7 @@ const ProductPageSkeleton: React.FC<ProductPageSkeletonProps> = ({
         </div>
       )}
       <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
-        <div className='flex flex-col-reverse'>
-          <div className='mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none'>
-            <div className='grid grid-cols-4 gap-6'>
-              <div>
-                <Skeleton className='flex h-24 rounded-md' />
-              </div>
-              <div>
-                <Skeleton className='flex h-24 rounded-md' />
-              </div>
-              <div>
-                <Skeleton className='flex h-24 rounded-md' />
-              </div>
-              <div>
-                <Skeleton className='flex h-24 rounded-md' />
-              </div>
-            </div>
-          </div>
-          <Skeleton className='w-full pb-[100%]' />
-        </div>
+        <SliderPageSkeleton />
         <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
           <Skeleton className='w-full h-9' />
           <div className='mt-3'>

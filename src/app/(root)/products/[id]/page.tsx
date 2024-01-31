@@ -1,32 +1,38 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import Stars from "@/components/ui/elements/stars";
 import { useFetchProductById } from "@/queries/product";
-
 import ProductPageSkeleton from "@/components/pages/products/product-page-skeleton";
 import useBasket from "@/hooks/use-basket";
 import SliderElement from "@/components/pages/products/product-page/slider-element";
 import CharacteristicsBlock from "@/components/pages/products/product-page/characteristics-block";
 import { format } from "@/lib/format";
-import { toast } from "sonner";
+import SliderPageSkeleton from "@/components/pages/products/slider-page-skeleton";
 
 const Page = () => {
   const params = useParams<{ id: string }>();
+  const router = useRouter();
   const { data, isLoading, error } = useFetchProductById(params.id);
   const { basketList, addElementBasketList, removeElementBasketList } =
     useBasket();
   // console.log("page");
-  const togleProductBasket = () => {
+  const togleProductBasket: () => void = () => {
     if (basketList.includes(params.id)) {
       removeElementBasketList(params.id);
       toast.info("Товар удален из корзины");
     } else {
       addElementBasketList(params.id);
-      toast.info("Товар добавлен в корзину");
+      toast.info("Товар добавлен в корзину", {
+        description: "Осталось оформить заказ!",
+        action: {
+          label: "Оформить",
+          onClick: () => router.push("/basket"),
+        },
+      });
     }
   };
 
@@ -46,7 +52,11 @@ const Page = () => {
   return (
     <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
       <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
-        <SliderElement images={[data.logo, ...data.img]} />
+        {data?.logo && data.img ? (
+          <SliderElement images={[data?.logo, ...data?.img]} />
+        ) : (
+          <SliderPageSkeleton />
+        )}
         <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
           <h1 className='text-3xl font-bold tracking-tight text-gray-900'>
             {data?.name}
