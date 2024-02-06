@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/accordion";
 
 interface MainCharacterTabProps extends React.HtmlHTMLAttributes<HTMLElement> {
-  characteristics: { id: number; title: string; description: string }[];
+  characteristics?: { id: number; title: string; description: string }[];
   type: string;
   brand: string;
 }

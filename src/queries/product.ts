@@ -1,5 +1,5 @@
 import { fetchAllProducts, fetchProductById } from "@/api";
-import { UseQueryResult, useQueries, useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 interface Brand {
   id: number;
@@ -39,6 +39,31 @@ export const useFetchProductById = (id: string) => {
   return useQuery<Product, Error>({
     queryKey: ["prod", id],
     queryFn: () => fetchProductById(id),
+  });
+};
+
+export const useFetchProductByIdOptions = (id: string) => {
+  return useQuery<
+    {
+      options: any[];
+      type: any;
+      brand: any;
+      price: number;
+      description: string;
+    },
+    Error
+  >({
+    queryKey: ["prod", id],
+    queryFn: () => fetchProductById(id),
+    select: (data) => {
+      return {
+        options: data.options,
+        type: data.type.name,
+        brand: data.brand.name,
+        price: data.price,
+        description: data.description,
+      };
+    },
   });
 };
 

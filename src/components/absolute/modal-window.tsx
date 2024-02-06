@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   Dialog,
   DialogContent,
@@ -8,19 +10,31 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import useModal from "@/hooks/use-modal";
+import ModalForm from "@/components/action-forms/modal-form";
 
-const ModalWindow = () => {
-  const { isOpen, onClose } = useModal();
+const ModalWindow: React.FC = () => {
+  const { isOpen, onClose, text } = useModal();
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle className='text-gray-900'>
+            Добро пожаловать в&nbsp;&laquo;Холод в&nbsp;Дом&raquo;
+          </DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            {text
+              ? text
+              : "Отправьте форму и наши специалисты свяжутся с вами в течении пяти минут."}
           </DialogDescription>
         </DialogHeader>
+        <ModalForm closeModal={onClose} text={text} />
+        <div className='text-sm'>
+          **Отправляя данную форму вы соглашаетесь с{" "}
+          <Link onClick={onClose} href={"/policy"} className='text-accent'>
+            политикой конфиденциальности
+          </Link>
+        </div>
       </DialogContent>
     </Dialog>
   );

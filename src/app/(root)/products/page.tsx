@@ -1,9 +1,14 @@
-"use client";
 import FiltersBlock from "@/components/pages/products/filters-block";
-import PaginationBlock from "@/components/pages/products/pagination-block";
 import ProductsList from "@/components/pages/products/products-list";
 import SortBlock from "@/components/pages/products/sort-block";
 import TitleBlock from "@/components/pages/products/title-block";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Выбрать кондиционер.",
+  description:
+    "Кондиционеры и сплит системы: купить по выгодной цене с доставкой по Саранску, Мордовии и всей России. ✔Широкий ассортимент. ✔ Гарантия от производителя..",
+};
 
 export default function Products() {
   return (

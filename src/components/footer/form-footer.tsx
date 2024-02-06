@@ -1,4 +1,4 @@
-import PromptForm from "@/components/forms/prompt-form";
+import PromptForm from "@/components/action-forms/prompt-form";
 
 const FormFooter = () => {
   return (

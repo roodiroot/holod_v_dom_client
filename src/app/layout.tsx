@@ -6,12 +6,12 @@ import TanstackProvider from "@/providers/TanstackProvider";
 export const metadata: Metadata = {
   metadataBase: new URL("https://holodvdom.su/"),
   title: {
-    template:
-      "%s | Установка и продажа кондиционеров в Саранске и республике Мордовия",
-    default: "Холод в Дом", // a default is required when creating a template
+    template: "%s | Продажа и монтаж кондиционеров в Саранске и по Мордовии",
+    default: 'Интернет магазин кондиционеров и сплит систем "Холод в Дом"',
   },
   description:
-    "Установка кондиционеров и сплит-систем | Профессиональный подбор кондиционеров | Гарантия на установку до пяти лет | Проффессионалы своего дела",
+    "Установка кондиционеров и сплит-систем. Профессиональный подбор кондиционеров. Гарантия на установку до пяти лет. Проффессионалы своего дела",
+
   icons: "../asstets/images/favicon-196.png",
 };
 

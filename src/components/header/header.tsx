@@ -47,12 +47,12 @@ const Header = () => {
             </div>
             <div className='ml-auto flex items-center'>
               <div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end space-x-6'>
-                <a
-                  href=''
+                <Link
+                  href='/sales'
                   className='text-sm font-medium text-gray-700 transition hover:text-gray-800'
                 >
                   акции
-                </a>
+                </Link>
                 <span className='h-6 w-[1px] bg-gray-200'></span>
                 <a
                   href=''
