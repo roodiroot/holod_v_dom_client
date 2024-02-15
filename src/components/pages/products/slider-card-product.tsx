@@ -10,12 +10,14 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import SliderCardThumb from "./slider-card-thumb";
+import { useRouter } from "next/navigation";
 
 interface SliderCardProductProps extends React.HtmlHTMLAttributes<HTMLElement> {
   list: string[];
 }
 
 const SliderCardProduct: React.FC<SliderCardProductProps> = ({ list }) => {
+  const router = useRouter();
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -29,7 +31,7 @@ const SliderCardProduct: React.FC<SliderCardProductProps> = ({ list }) => {
   }, [api]);
 
   return (
-    <div className='w-full h-full '>
+    <div onClick={() => router.push("/")} className='w-full h-full '>
       <Carousel
         setApi={setApi}
         opts={{
@@ -42,11 +44,11 @@ const SliderCardProduct: React.FC<SliderCardProductProps> = ({ list }) => {
           {list.map((i, index) => (
             <CarouselItem key={index}>
               <div className='relative aspect-square w-full h-full p-4  overflow-hidden'>
-                <div>
+                <div className='w-full h-full'>
                   <Image
                     src={`${process.env.NEXT_PUBLIC_URL}/${i}`}
                     alt={`${i}_logo`}
-                    className='h-full w-full object-cover object-center'
+                    className='w-full h-full object-contain object-center'
                     width={300}
                     height={300}
                   />

@@ -21,14 +21,20 @@ const MainCharacterTab: React.FC<MainCharacterTabProps> = ({
       <AccordionContent>
         <ul className=''>
           <li className='relative pl-1.5  my-2  pr-6 w-full flex gap-4 justify-between sm:pl-6 sm:before:top-1/2 sm:before:-translate-y-1/2 sm:before:absolute sm:before:left-2 sm:before:w-1 sm:before:h-1 sm:before:bg-slate-200'>
-            <span className='flex-1 whitespace-nowrap'>
+            <span className='flex-1 leading-4 text-balance'>
               Бренд производитель:
             </span>
-            <span className='text-gray-900 font-medium'>{brand}</span>
+            <span className='text-gray-900 font-medium  text-right leading-4'>
+              {brand}
+            </span>
           </li>
           <li className='relative pl-1.5  my-2  pr-6 w-full flex gap-4 justify-between sm:pl-6 sm:before:top-1/2 sm:before:-translate-y-1/2 sm:before:absolute sm:before:left-2 sm:before:w-1 sm:before:h-1 sm:before:bg-slate-200'>
-            <span className='flex-1 whitespace-nowrap'>Тип усстройства:</span>
-            <span className='text-gray-900 font-medium text-right'>{type}</span>
+            <span className='flex-1 leading-4 text-balance'>
+              Тип усстройства:
+            </span>
+            <span className='text-gray-900 font-medium text-right leading-4'>
+              {type}
+            </span>
           </li>
           {characteristics &&
             characteristics
@@ -45,8 +51,10 @@ const MainCharacterTab: React.FC<MainCharacterTabProps> = ({
                   key={i.id}
                   className='relative pl-1.5  my-2  pr-6 w-full flex gap-4 justify-between sm:pl-6 sm:before:top-1/2 sm:before:-translate-y-1/2 sm:before:absolute sm:before:left-2 sm:before:w-1 sm:before:h-1 sm:before:bg-slate-200'
                 >
-                  <span className='flex-1 whitespace-nowrap'>{i.title}</span>
-                  <span className='text-gray-900 font-medium'>
+                  <span className='flex-1 leading-4 text-balance '>
+                    {i.title}
+                  </span>
+                  <span className='text-gray-900 font-medium text-right leading-4'>
                     {i.description}
                   </span>
                 </li>

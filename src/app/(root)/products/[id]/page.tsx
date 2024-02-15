@@ -4,6 +4,9 @@ import { fetchAllProducts, fetchProductById } from "@/api";
 import SliderElement from "@/components/pages/products/product-page/slider-element";
 import SliderPageSkeleton from "@/components/pages/products/slider-page-skeleton";
 import CharacteristicsBlockClient from "@/components/pages/products/product-page/characteristics-block-client";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
+import { cn } from "@/lib/utils";
+import { beautifulFont } from "@/app/fonts";
 
 type Props = {
   params: { id: string };
@@ -24,21 +27,29 @@ const Page: React.FC<{ params: { id: string } }> = async ({ params }) => {
   const product = await fetchProductById(id);
 
   return (
-    <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
-      <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
-        {product?.logo && product.img ? (
-          <SliderElement images={[product?.logo, ...product?.img]} />
-        ) : (
-          <SliderPageSkeleton />
-        )}
-        <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
-          <h1 className='text-3xl font-bold tracking-tight text-gray-900'>
-            {product?.name}
-          </h1>
-          <CharacteristicsBlockClient productId={id} />
+    <>
+      <Breadcrumbs productName={product.name} />
+      <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
+        <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8'>
+          {product?.logo && product.img ? (
+            <SliderElement images={[product?.logo, ...product?.img]} />
+          ) : (
+            <SliderPageSkeleton />
+          )}
+          <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
+            <h1
+              className={cn(
+                beautifulFont.className,
+                "text-4xl font-bold tracking-tight text-gray-900"
+              )}
+            >
+              {product?.name}
+            </h1>
+            <CharacteristicsBlockClient productId={id} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

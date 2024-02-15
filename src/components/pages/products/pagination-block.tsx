@@ -10,6 +10,7 @@ import {
 import { countElementsPage } from "@/utils/count-elements-in-page";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import RenderPaginationButtons from "./render-pagination-button";
 interface PaginationProps extends React.HtmlHTMLAttributes<HTMLElement> {
   allCount?: number;
 }
@@ -41,16 +42,23 @@ const PaginationBlock: React.FC<PaginationProps> = ({
     },
     [searchParams]
   );
+
   useEffect(() => {
     pageSelect > 1
       ? router.push(
-          pathname + "?" + createQueryString("page", String(pageSelect)),
-          { scroll: false }
+          pathname + "?" + createQueryString("page", String(pageSelect))
         )
-      : router.push(pathname + "?" + deletQueryString("page"), {
-          scroll: false,
-        });
+      : router.push(pathname + "?" + deletQueryString("page"));
   }, [pageSelect]);
+
+  const pageArray = (): number[] => {
+    const arr = [];
+    for (let i = 1; i <= Math.ceil(allCount / countElementsPage); i++) {
+      arr.push(i);
+    }
+
+    return arr;
+  };
 
   return (
     <Pagination {...props} className={className}>
@@ -58,33 +66,32 @@ const PaginationBlock: React.FC<PaginationProps> = ({
         <PaginationItem>
           <PaginationPrevious
             href='#'
-            onClick={() => setPageSelect((curentPage) => curentPage - 1)}
+            onClick={() =>
+              setPageSelect((curentPage) => {
+                if (curentPage > 1) {
+                  return curentPage - 1;
+                }
+                return curentPage;
+              })
+            }
           />
         </PaginationItem>
-        <PaginationItem>
-          {allCount ? (
-            new Array(Math.ceil(allCount / countElementsPage))
-              .fill("")
-              .map((i, index) => (
-                <PaginationLink
-                  key={index}
-                  onClick={() => setPageSelect(index + 1)}
-                  href='#'
-                >
-                  {index + 1}
-                </PaginationLink>
-              ))
-          ) : (
-            <PaginationLink onClick={() => setPageSelect(1)} href='#'>
-              1
-            </PaginationLink>
-          )}
-        </PaginationItem>
-        <PaginationItem>{/* <PaginationEllipsis /> */}</PaginationItem>
+        <RenderPaginationButtons
+          pageArray={pageArray()}
+          pageSelect={pageSelect}
+          setPageSelect={setPageSelect}
+        />
         <PaginationItem>
           <PaginationNext
             href='#'
-            onClick={() => setPageSelect((curentPage) => curentPage + 1)}
+            onClick={() =>
+              setPageSelect((curentPage) => {
+                if (curentPage < pageArray().length) {
+                  return curentPage + 1;
+                }
+                return curentPage;
+              })
+            }
           />
         </PaginationItem>
       </PaginationContent>

@@ -1,12 +1,5 @@
-import Breadcrumbs from "@/components/ui/breadcrumbs";
-
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <div>
-      <Breadcrumbs />
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default Layout;

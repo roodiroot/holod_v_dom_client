@@ -1,4 +1,5 @@
 import TestimonialItem from "./testimonial-item";
+import reviews from "@/utils/rewiews.json";
 
 const TestimonialsSection = () => {
   return (
@@ -8,17 +9,14 @@ const TestimonialsSection = () => {
           Что о нас пишут?
         </h2>
         <div className='mt-16 space-y-16 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 '>
-          {Array(3)
-            .fill(" ")
-            .map((i, index) => (
-              <TestimonialItem
-                key={index}
-                text='Устанавливали кондиционер в спальню, и теперь я сплю как младенец.
-                Работали быстро и чисто, даже мои коты не испугались!'
-                city='гор. Рузаевка'
-                author='Максим Б.'
-              />
-            ))}
+          {reviews.map((i) => (
+            <TestimonialItem
+              key={i.author}
+              text={i.text}
+              city={i.city}
+              author={i.author}
+            />
+          ))}
         </div>
       </div>
     </section>

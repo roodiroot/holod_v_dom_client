@@ -7,10 +7,6 @@ export const metadata: Metadata = {
     'Интернет–магазин климатической техники: кондиционеров, сплит систем "Холод в дом" 8 (905) 009 68 88. Гарантия на все климатическое оборудование.',
 };
 
-const Basket = () => (
-  <>
-    <BasketClient />
-  </>
-);
+const Basket = () => <BasketClient />;
 
 export default Basket;

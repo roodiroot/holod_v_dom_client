@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { cn } from "@/lib/utils";
+import { beautifulFont } from "@/app/fonts";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +21,9 @@ const ModalWindow: React.FC = () => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
-          <DialogTitle className='text-gray-900'>
+          <DialogTitle
+            className={cn(beautifulFont.className, "text-gray-900 text-2xl")}
+          >
             Добро пожаловать в&nbsp;&laquo;Холод в&nbsp;Дом&raquo;
           </DialogTitle>
           <DialogDescription>

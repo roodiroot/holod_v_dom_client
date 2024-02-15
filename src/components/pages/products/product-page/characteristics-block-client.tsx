@@ -8,7 +8,7 @@ import CharacterTab from "./character-tab";
 import InstalationTab from "./instalation-tab";
 import PayTab from "./pay-tab";
 import DeliveryTab from "./delivery-tab";
-import { useFetchProductByIdOptions } from "@/queries/product";
+import { useFetchOptionsByIdProducts } from "@/queries/product";
 import Stars from "@/components/ui/elements/stars";
 import { format } from "@/lib/format";
 import AddingBasket from "./server-component/adding-basket";
@@ -23,7 +23,7 @@ const CharacteristicsBlockClient: React.FC<CharacteristicsBlockProps> = ({
   productId,
   ...props
 }) => {
-  const { data, isLoading, error } = useFetchProductByIdOptions(productId);
+  const { data, isLoading, error } = useFetchOptionsByIdProducts(productId);
 
   if (isLoading) {
     return <CharacteristicsSkeleton />;

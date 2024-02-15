@@ -1,10 +1,11 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
 interface BasketState {
   basketList: string[];
   addElementBasketList: (value: string) => void;
   removeElementBasketList: (value: string) => void;
+  dropBasket: () => void;
 }
 
 const useBasket = create<BasketState, [["zustand/persist", BasketState]]>(
@@ -22,6 +23,7 @@ const useBasket = create<BasketState, [["zustand/persist", BasketState]]>(
         set((state) => {
           return { basketList: state.basketList.filter((i) => i !== value) };
         }),
+      dropBasket: () => set({ basketList: [] }),
     }),
     { name: "basket" }
   )

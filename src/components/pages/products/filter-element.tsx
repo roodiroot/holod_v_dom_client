@@ -2,12 +2,13 @@
 
 import React, { memo } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 
 interface FilterElementProps extends React.HtmlHTMLAttributes<HTMLElement> {
-  title: string;
   list: { name: string; value: string | number }[];
   value: any[];
   setValue: (value: any) => void;
+  title?: string;
 }
 
 const FilterElement: React.FC<FilterElementProps> = ({
@@ -18,11 +19,22 @@ const FilterElement: React.FC<FilterElementProps> = ({
   ...props
 }) => (
   <fieldset {...props}>
-    <legend className='block text-sm font-medium text-gray-900'>{title}</legend>
-    <div className='pt-6 space-y-3'>
+    {title && (
+      <legend className='block text-sm font-medium text-gray-900'>
+        {title}
+      </legend>
+    )}
+    <div
+      className={cn(
+        "space-y-6",
+        title && "pt-6 space-y-3 gap-y-3",
+        list.length > 6 && "grid grid-cols-2 space-y-0 gap-y-6",
+        list.length > 16 && "grid grid-cols-3 space-y-0 gap-y-6"
+      )}
+    >
       {list &&
         list?.map((i) => (
-          <div key={i.name} className='flex items-center space-x-3'>
+          <div key={i.name} className='flex items-center'>
             <Checkbox
               checked={value.includes(i.value)}
               onCheckedChange={(e) => {
@@ -41,7 +53,7 @@ const FilterElement: React.FC<FilterElementProps> = ({
             />
             <label
               htmlFor={`${i.value}`}
-              className='text-sm peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+              className='text-sm pl-3 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 line-clamp-1'
             >
               {i.name}
             </label>

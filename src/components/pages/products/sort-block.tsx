@@ -8,11 +8,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Icons } from "@/components/ui/icons";
+import useFilters from "@/hooks/use-filters";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 const SortBlock = () => {
+  const { onOpen } = useFilters();
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -52,12 +56,16 @@ const SortBlock = () => {
   }, [sortSelect]);
 
   return (
-    <div className='mx-auto flex max-w-7xl justify-end px-4 sm:px-6 lg:px-8'>
+    <div className='mx-auto flex max-w-7xl justify-between px-4 sm:px-6 lg:px-8 lg:justify-end'>
+      <button onClick={onOpen} className='flex items-center lg:hidden'>
+        <span className='text-gray-900 text-sm'>Фильтры</span>
+        <Icons.pluss className='text-gray-300 w-5 h-5 ml-1 shrink-0' />
+      </button>
       <div className='relative inline-block'>
         <DropdownMenu>
           <DropdownMenuTrigger className='text-gray-900 text-sm flex items-center'>
             <span>{value}</span>
-            <ChevronDownIcon className='w-4 h-4 ml-1' />
+            <ChevronDownIcon className='w-4 h-4 ml-1 text-gray-300' />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem

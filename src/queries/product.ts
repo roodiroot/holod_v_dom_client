@@ -1,4 +1,4 @@
-import { fetchAllProducts, fetchProductById } from "@/api";
+import { fetchAllProducts, fetchProductById, fetchProductsSearch } from "@/api";
 import { useQueries, useQuery } from "@tanstack/react-query";
 
 interface Brand {
@@ -15,6 +15,12 @@ interface Type {
   img?: string;
 }
 
+export interface Options {
+  id: number;
+  title: string;
+  description: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -26,14 +32,42 @@ export interface Product {
   brand: Brand;
   typeId: number;
   type: Type;
-  options: { id: number; title: string; description: string }[];
+  options: Options[];
   range: string;
 }
 
+export interface ProductSearchInterface {
+  id: string;
+  name: string;
+  type: symbol;
+  brand: string;
+}
+// interface ResponceProductSearch {
+//   count: number;
+//   data: ProductSearchInterface[] | [];
+// }
+
 interface ResponseFetch {
   count: number;
-  data: Product[];
+  data?: Product[];
 }
+export const useSearchProducts = (text: string) => {
+  return useQuery<ProductSearchInterface[], Error>({
+    queryKey: ["search", text],
+    queryFn: () => fetchProductsSearch(text),
+    select: (data: any) => {
+      if (data.data)
+        return data?.data.map((i: Product) => {
+          return {
+            id: i.id,
+            name: i.name,
+            type: i.type.name,
+            brand: i.brand.name,
+          };
+        });
+    },
+  });
+};
 
 export const useFetchProductById = (id: string) => {
   return useQuery<Product, Error>({
@@ -42,7 +76,7 @@ export const useFetchProductById = (id: string) => {
   });
 };
 
-export const useFetchProductByIdOptions = (id: string) => {
+export const useFetchOptionsByIdProducts = (id: string) => {
   return useQuery<
     {
       options: any[];
@@ -85,7 +119,6 @@ export const useFetchAllProductsByIds = (value: string[]) => {
           (accumulator, result) => result?.data?.price + accumulator,
           0
         ),
-        // summ: results.map((result) => console.log(result.data?.price)),
       };
     },
   });

@@ -10,7 +10,7 @@ import useModal from "@/hooks/use-modal";
 import { useFetchAllProductsByIds } from "@/queries/product";
 
 const BasketClient = () => {
-  const { basketList, removeElementBasketList } = useBasket();
+  const { basketList, removeElementBasketList, dropBasket } = useBasket();
   const { data, pending, isError, summ } = useFetchAllProductsByIds(basketList);
   const { onOpen } = useModal();
 
@@ -33,16 +33,20 @@ const BasketClient = () => {
     <WrapperBasket>
       {pending ? (
         <SkeletonBasketWrapper className='mt-12' />
-      ) : data.length ? (
+      ) : data?.length ? (
         <form onSubmit={(e) => e.preventDefault()} className='mt-12'>
-          <ListBasket list={data} removeElement={removeElementBasketList} />
+          <ListBasket
+            list={data}
+            removeElement={removeElementBasketList}
+            dropBasket={dropBasket}
+          />
           <ActionBasket
             className='mt-10'
             totalSumm={isNaN(summ) ? 0 : summ}
             openModal={() =>
               onOpen(
                 `Техника в заказе ${JSON.stringify(
-                  data.map((i) => i.name).join(", ")
+                  data?.map((i) => i?.name).join(", ")
                 )} на сумму ${summ} руб. После отправки формы ожидайте звонка для уточнения деталей доставки и установки.`
               )
             }

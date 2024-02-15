@@ -43,6 +43,7 @@ const PromptForm = () => {
       <Input
         {...register("phone", { pattern: regExp, required: true })}
         id='phone'
+        type='text'
         placeholder='Введите телефон'
         className='col-span-3'
         invalid={!!errors.phone}

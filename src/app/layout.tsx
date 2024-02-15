@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { beautifulFont } from "./fonts";
-import "./globals.css";
+
 import TanstackProvider from "@/providers/TanstackProvider";
+import { montserrat } from "./fonts";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://holodvdom.su/"),
@@ -22,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
-      <body className={beautifulFont.className}>
+      <body className={montserrat.className}>
         <TanstackProvider>{children}</TanstackProvider>
       </body>
     </html>

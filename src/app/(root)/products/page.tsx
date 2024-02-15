@@ -1,8 +1,8 @@
-import FiltersBlock from "@/components/pages/products/filters-block";
-import ProductsList from "@/components/pages/products/products-list";
-import SortBlock from "@/components/pages/products/sort-block";
-import TitleBlock from "@/components/pages/products/title-block";
 import { Metadata } from "next";
+
+import TitleBlock from "@/components/pages/products/title-block";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
+import ProductsActions from "@/components/pages/products/products-actions";
 
 export const metadata: Metadata = {
   title: "Выбрать кондиционер.",
@@ -12,19 +12,16 @@ export const metadata: Metadata = {
 
 export default function Products() {
   return (
-    <main className='mx-auto max-w-2xl px-4 pb-24 lg:max-w-7xl lg:px-8'>
-      <TitleBlock
-        title='Каталог магазина'
-        description='Здесь вы найдете все интересующие вас товары. А что не найдете всегда
+    <>
+      <Breadcrumbs />
+      <main className='mx-auto max-w-2xl px-4 pb-24 lg:max-w-7xl lg:px-8'>
+        <TitleBlock
+          title='Каталог магазина'
+          description='Здесь вы найдете все интересующие вас товары. А что не найдете всегда
         можете связаться с нами.'
-      />
-      <div className='py-4'>
-        <SortBlock />
-      </div>
-      <div className='pt-0 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4'>
-        <FiltersBlock />
-        <ProductsList />
-      </div>
-    </main>
+        />
+        <ProductsActions />
+      </main>
+    </>
   );
 }

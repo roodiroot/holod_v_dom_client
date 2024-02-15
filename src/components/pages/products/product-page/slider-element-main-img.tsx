@@ -39,7 +39,7 @@ const SliderElementMainImg: React.FC<SliderElementMainImgProps> = ({
                   <Image
                     src={`${process.env.NEXT_PUBLIC_URL}/${i}`}
                     alt='item_product'
-                    className='h-full w-full object-cover object-center'
+                    className='h-full w-full object-contain object-center'
                     width={600}
                     height={600}
                   />

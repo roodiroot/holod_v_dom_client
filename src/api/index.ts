@@ -10,6 +10,13 @@ const fetchProductById = async (id: string) => {
   return data;
 };
 
+const fetchProductsSearch = async (text: string) => {
+  const { data } = await request.get("/product/search", {
+    params: { text },
+  });
+  return data;
+};
+
 const fetchAllProducts = async (params: ParamsFilterType) => {
   const page = isNaN(Number(JSON.parse(params.page ?? "1")))
     ? 1
@@ -44,7 +51,21 @@ const fetchAllBrands = async () => {
   return { ...data };
 };
 
-export { fetchAllProducts, fetchAllTypes, fetchAllBrands, fetchProductById };
+const fetchAllOptions = async (title: string) => {
+  const { data } = await request.get("/option", {
+    params: { title },
+  });
+  return data;
+};
+
+export {
+  fetchAllProducts,
+  fetchAllTypes,
+  fetchAllBrands,
+  fetchProductById,
+  fetchProductsSearch,
+  fetchAllOptions,
+};
 
 // ['square', 'Площадь помещения: м².'],
 // ['compressor', 'Тип компрессора:'],

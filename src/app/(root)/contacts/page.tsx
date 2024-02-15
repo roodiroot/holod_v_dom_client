@@ -1,3 +1,5 @@
+import { beautifulFont } from "@/app/fonts";
+import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +14,13 @@ const Contacts = () => {
       <div className='py-24 sm:py-32'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
-            <h2 className='text-3xl font-bold tracking-tight text-gray-900'>
-              Наши контакты
+            <h2
+              className={cn(
+                beautifulFont.className,
+                "text-4xl font-bold tracking-tight text-gray-900"
+              )}
+            >
+              Контактная информация
             </h2>
             <p className='mt-6 text-lg leading-8 '>
               У нас нет фиксированного офиса, но наши бригады оперативно

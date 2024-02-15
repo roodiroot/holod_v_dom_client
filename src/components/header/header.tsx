@@ -4,6 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Logo from "@/components/ui/logo";
 import MobilMenuButton from "./mobil-menu-button";
 import BasketItem from "./basket-item";
+import SearchButton from "./search-button";
 const Header = () => {
   return (
     <header className='relative bg-white'>
@@ -62,9 +63,7 @@ const Header = () => {
                 </a>
               </div>
               <div className='flex lg:ml-8'>
-                <a href='' className='text-gray-400 p-2'>
-                  <MagnifyingGlassIcon className='w-6 h-6' />
-                </a>
+                <SearchButton />
               </div>
               <div className='ml-4 flow-root lg:ml-6'>
                 <BasketItem />

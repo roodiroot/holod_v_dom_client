@@ -1,89 +1,131 @@
 "use client";
 
-import { useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
 import FilterElement from "@/components/pages/products/filter-element";
-import { brands, square, types, wifi } from "@/utils/filters";
-import useAddingParams from "@/hooks/use-adding-params";
-import { useFetchBrands, useFetchTypes } from "@/queries/type&brand";
+import { Skeleton } from "@/components/ui/skeleton";
+import useWindowSize from "@/hooks/use-resize";
 
-const FiltersBlock = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const { data: typesList, isSuccess: isSuccessType } = useFetchTypes();
-  const { data: brandList, isSuccess: isSuccessBrand } = useFetchBrands();
+interface FiltersBlockProps {
+  isSuccessType: boolean;
+  isSuccessBrand: boolean;
+  typesList: any;
+  brandList: any;
+  squareArray: any;
+  wifiArray: any;
+  selectType: any;
+  setSelectType: (value: any) => void;
+  selectBrand: any;
+  setSelectBrand: (value: any) => void;
+  selectSquare: any;
+  setSelectSquare: (value: any) => void;
+  selectWiFi: any;
+  setSelectWiFi: (value: any) => void;
+}
 
-  const squareParam = searchParams.get("square");
-  const wifiParam = searchParams.get("wifi");
-  const typeIdParam = searchParams.get("typeId");
-  const brandIdParam = searchParams.get("brandId");
-
-  const [selectBrand, setSelectBrand] = useState(
-    brandIdParam ? JSON.parse(brandIdParam) : []
-  );
-  const [selectType, setSelectType] = useState(
-    typeIdParam ? JSON.parse(typeIdParam) : []
-  );
-  const [selectSquare, setSelectSquare] = useState(
-    squareParam ? JSON.parse(squareParam) : []
-  );
-  const [selectWiFi, setSelectWiFi] = useState(
-    wifiParam ? JSON.parse(wifiParam) : []
-  );
-
-  useAddingParams(searchParams, selectSquare, "square", router, pathname);
-  useAddingParams(searchParams, selectBrand, "brandId", router, pathname);
-  useAddingParams(searchParams, selectType, "typeId", router, pathname);
-  useAddingParams(searchParams, selectWiFi, "wifi", router, pathname);
+const FiltersBlock: React.FC<FiltersBlockProps> = ({
+  isSuccessType,
+  typesList,
+  selectType,
+  setSelectType,
+  isSuccessBrand,
+  brandList,
+  squareArray,
+  wifiArray,
+  selectBrand,
+  setSelectBrand,
+  selectSquare,
+  setSelectSquare,
+  selectWiFi,
+  setSelectWiFi,
+}) => {
+  const { width } = useWindowSize();
+  if (width && width < 1024) {
+    return null;
+  }
+  if (!width) {
+    return null;
+  }
 
   return (
     <aside>
+      <h2 className='sr-only'>Фильтры</h2>
       <div className='hidden lg:block'>
-        <form action='' className='space-y-10 divide-y divide-gray-200'>
-          {isSuccessType && (
+        <form className='space-y-10 divide-y divide-gray-200'>
+          {isSuccessType ? (
             <div>
               <FilterElement
                 title='Тип устройств'
                 value={selectType}
                 setValue={setSelectType}
-                list={typesList?.data.map((i) => {
-                  return { name: i.name, value: i.id };
-                })}
+                list={typesList?.data.map((i: any) => ({
+                  name: i.name,
+                  value: i.id,
+                }))}
               />
+            </div>
+          ) : (
+            <div className='overflow-hidden rounded-lg '>
+              <Skeleton className='flex h-[200px]' />
             </div>
           )}
 
-          {isSuccessBrand && (
+          {isSuccessBrand ? (
             <div className='pt-10'>
               <FilterElement
                 title='Бренды'
                 value={selectBrand}
                 setValue={setSelectBrand}
-                list={brandList?.data.map((i) => {
-                  return { name: i.name, value: i.id };
-                })}
+                list={brandList?.data.map((i: any) => ({
+                  name: i.name,
+                  value: i.id,
+                }))}
               />
+            </div>
+          ) : (
+            <div className='pt-10 overflow-hidden rounded-lg '>
+              <Skeleton className='flex h-[200px]' />
             </div>
           )}
 
-          <div className='pt-10'>
-            <FilterElement
-              title='Площадь помещения'
-              value={selectSquare}
-              setValue={setSelectSquare}
-              list={square}
-            />
-          </div>
-          <div className='pt-10'>
-            <FilterElement
-              title='Управление WiFi'
-              value={selectWiFi}
-              setValue={setSelectWiFi}
-              list={wifi}
-            />
-          </div>
+          {squareArray.length ? (
+            <div className='pt-10'>
+              <FilterElement
+                title='Площадь помещения'
+                value={selectSquare}
+                setValue={setSelectSquare}
+                list={squareArray
+                  ?.map((element: string) => ({
+                    name: `${element} м²`,
+                    value: element,
+                  }))
+                  .sort(
+                    (a: { value: string }, b: { value: string }) =>
+                      Number(a.value) - Number(b.value)
+                  )}
+              />
+            </div>
+          ) : (
+            <div className='pt-10 overflow-hidden rounded-lg '>
+              <Skeleton className='flex h-[200px]' />
+            </div>
+          )}
+
+          {wifiArray.length ? (
+            <div className='pt-10'>
+              <FilterElement
+                title='Управление WiFi'
+                value={selectWiFi}
+                setValue={setSelectWiFi}
+                list={wifiArray?.map((element: string) => ({
+                  name: element,
+                  value: element,
+                }))}
+              />
+            </div>
+          ) : (
+            <div className='pt-10 overflow-hidden rounded-lg '>
+              <Skeleton className='flex h-[200px]' />
+            </div>
+          )}
         </form>
       </div>
     </aside>
@@ -91,8 +133,3 @@ const FiltersBlock = () => {
 };
 
 export default FiltersBlock;
-
-// ['square', 'Площадь помещения: м².'],
-//     ['invertor', 'Тип компрессора:'],
-//     ['wifi', 'Наличие WiFi:'],
-//     ['energy', 'Класс энегроэффективности:'],
