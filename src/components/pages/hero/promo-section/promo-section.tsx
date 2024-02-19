@@ -2,7 +2,7 @@ import Action from "@/components/pages/hero/promo-section/action";
 
 const PromoSection = () => (
   <section className='bg-white py-16 sm:py-24'>
-    <div className='relative bg-gray-800 px-6 py-32 sm:px-12 sm:py-40 lg:px-16'>
+    <div className='relative bg-accent px-6 py-32 sm:px-12 sm:py-40 lg:px-16'>
       <div className='absolute inset-0 overflow-hidden'>
         {/* <Image className="w-full h-full object-cover object-center" /> */}
       </div>

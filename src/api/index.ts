@@ -42,6 +42,15 @@ const fetchAllProducts = async (params: ParamsFilterType) => {
   return { ...data };
 };
 
+const getAllProducts = async () => {
+  const { data } = await request.get("/product", {
+    params: {
+      range: JSON.stringify([999, 0]),
+    },
+  });
+  return { ...data };
+};
+
 const fetchAllTypes = async () => {
   const { data } = await request.get("/type");
   return data;
@@ -65,6 +74,7 @@ export {
   fetchProductById,
   fetchProductsSearch,
   fetchAllOptions,
+  getAllProducts,
 };
 
 // ['square', 'Площадь помещения: м².'],

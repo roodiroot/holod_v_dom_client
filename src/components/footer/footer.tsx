@@ -8,12 +8,13 @@ const menuList = [
   { link: "/about", title: "О нас" },
   { link: "/contacts", title: "Контакты" },
   { link: "/basket", title: "Корзина" },
+  { link: "/delivery", title: "Доставка" },
+  { link: "/price", title: "Цены на услуги" },
+  { link: "/sales", title: "Акции" },
 ];
 const catalogList = [
-  { link: "/brands", title: "Бренды" },
-  { link: "/products?typeId=%5B13%5D", title: "Сплит Системы ( обычные )" },
-  { link: "/products?typeId=%5B14%5D", title: "Сплит системы (инверторные)" },
-  { link: "/products?typeId=%5B15%5D", title: "Мульти сплит системы" },
+  { link: "/products?typeId=%5B13%5D", title: "Сплит Системы" },
+  { link: "/products?typeId=%5B14%5D", title: "Инверторные cплит системы" },
   {
     link: "/products?typeId=%5B16%5D",
     title: "Полу промышленное оборудование",

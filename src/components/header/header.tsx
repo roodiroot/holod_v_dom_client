@@ -1,16 +1,20 @@
 import Link from "next/link";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 import Logo from "@/components/ui/logo";
 import MobilMenuButton from "./mobil-menu-button";
 import BasketItem from "./basket-item";
 import SearchButton from "./search-button";
+import { Truck } from "lucide-react";
 const Header = () => {
   return (
     <header className='relative bg-white'>
-      <p className='flex h-10 items-center justify-center bg-accent-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8'>
-        До 17 Января 2024 года доставка бесплатно
-      </p>
+      <Link
+        href={"/delivery"}
+        className='flex h-10 items-center justify-center bg-accent-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8'
+      >
+        Бесплатный замер и доставка техники *
+        <Truck className='w-5 h-5 ml-2' />
+      </Link>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='border-b border-gray-200 '>
           <div className='flex h-16 items-center'>
@@ -56,7 +60,7 @@ const Header = () => {
                 </Link>
                 <span className='h-6 w-[1px] bg-gray-200'></span>
                 <a
-                  href=''
+                  href='tel:+79050096888'
                   className='text-sm font-medium text-gray-700 transition hover:text-gray-800'
                 >
                   +7 (905) 009 68 88

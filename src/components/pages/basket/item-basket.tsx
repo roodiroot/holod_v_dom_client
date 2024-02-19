@@ -29,7 +29,7 @@ const ItemBasket: React.FC<ItemBasketProps> = ({
       {logo ? (
         <div>
           <Image
-            className='h-24 w-24 object-cover object-center sm:w-32 sm:h-32 p-[10%]'
+            className='h-24 w-24 object-contain object-center sm:w-32 sm:h-32 p-[10%]'
             src={process.env.NEXT_PUBLIC_URL + "/" + logo}
             alt='basket_product'
             width={128}

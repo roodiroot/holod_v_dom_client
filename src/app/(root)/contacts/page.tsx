@@ -34,8 +34,13 @@ const Contacts = () => {
                 Служба поддержки и консультации:
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
-                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                <p>Email: info@holodvdom.ru</p>
+                <p>
+                  <a href='tel:+79050096888'>Телефон: +7 (905) 009 68 88</a>
+                </p>
+                <p>
+                  <a href='mailto:info@holod-vdom.ru'></a>Email:
+                  info@holod-vdom.ru
+                </p>
               </div>
             </div>
             <div>
@@ -43,8 +48,14 @@ const Contacts = () => {
                 Заказ и консультация:
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
-                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                <p>Email: info@holodvdom.ru</p>
+                <p>
+                  <a href='tel:+79050096888'>Телефон: +7 (905) 009 68 88</a>
+                </p>
+                <p>
+                  <a href='mailto:sale@holod-vdom.ru'>
+                    Email: sale@holod-vdom.ru
+                  </a>
+                </p>
               </div>
             </div>
             <div>
@@ -52,8 +63,14 @@ const Contacts = () => {
                 Служба логистики и доставки:
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
-                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                <p>Email: info@holodvdom.ru</p>
+                <p>
+                  <a href='tel:+79050096888'>Телефон: +7 (905) 009 68 88</a>
+                </p>
+                <p>
+                  <a href='mailto:logistics@holod-vdom.ru'>
+                    Email: logistics@holod-vdom.ru
+                  </a>
+                </p>
               </div>
             </div>
             <div>
@@ -61,8 +78,14 @@ const Contacts = () => {
                 Сервис и техническая поддержка:
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
-                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                <p>Email: info@holodvdom.ru</p>
+                <p>
+                  <a href='tel:+79050096888'>Телефон: +7 (905) 009 68 88</a>
+                </p>
+                <p>
+                  <a href='mailto:service@holod-vdom.ru'>
+                    Email: service@holod-vdom.ru
+                  </a>
+                </p>
               </div>
             </div>
             <div>
@@ -70,8 +93,24 @@ const Contacts = () => {
                 Социальные сети:
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
-                <p>Телеграм: @holod_v_dom</p>
-                <p>Whatsapp: +7 (XXX) XXX-XX-XX</p>
+                <p>
+                  <a href='https://t.me/kos_starshii'>Телеграм: @holod_v_dom</a>
+                </p>
+                <p>
+                  <a href='https://wa.me/79050096888'>
+                    Whatsapp: +7 (905) 009 68 88
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 className='border-l border-accent pl-6 font-semibold text-gray-900'>
+                Адрес:
+              </h3>
+              <div className='border-l border-gray-200 pl-6 pt-2'>
+                <p>г. Саранск ул. Терешковой 7а</p>
+                <p>Рабочие часы: Пн-Сб: 8:00 - 20:00</p>
+                <p>Выходной: Воскресенье</p>
               </div>
             </div>
           </div>

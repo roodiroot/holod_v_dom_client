@@ -24,69 +24,63 @@ const SaleSection = () => {
               <div className='absolute -top-32 left-1/2 -translate-x-1/2 sm:top-6 sm:translate-x-0'>
                 <div className='ml-24 flex min-w-max sm:ml-3 space-x-6 lg:space-x-8'>
                   <div className='flex sm:flex-col space-x-6 sm:space-x-0 sm:space-y-6 lg:space-y-8'>
-                    <div className='rounded-lg overflow-hidden relative shrink-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative shrink-0'>
                       <Image
-                        className='p-4 h-64 w-64 object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64 object-cover md:h-72 md:w-72'
+                        src='/image/promo/8.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
-                    <div className='rounded-lg overflow-hidden relative shrink-0 mt-6 sm:mt-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative shrink-0 mt-6 sm:mt-0'>
                       <Image
-                        className='p-4 h-64 w-64 object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64 object-cover md:h-72 md:w-72'
+                        src='/image/promo/9.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
                   </div>
                   <div className='flex sm:-mt-20 sm:flex-col space-x-6 sm:space-x-0 sm:space-y-6 lg:space-y-8'>
-                    <div className='rounded-lg overflow-hidden relative shrink-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative shrink-0'>
                       <Image
-                        className='p-4 h-64 w-64 object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64 object-cover md:h-72 md:w-72'
+                        src='/image/promo/2.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
-                    <div className='rounded-lg overflow-hidden relative shrink-0 mt-6 sm:mt-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative shrink-0 mt-6 sm:mt-0'>
                       <Image
-                        className='p-4 h-64 w-64 object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64 object-cover md:h-72 md:w-72'
+                        src='/image/promo/1.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
                   </div>
                   <div className='flex sm:flex-col space-x-6 sm:space-x-0 sm:space-y-6 lg:space-y-8'>
-                    <div className='rounded-lg overflow-hidden relative shrink-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative shrink-0'>
                       <Image
-                        className='p-4 h-64 w-64  object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64  object-cover md:h-72 md:w-72'
+                        src='/image/promo/13.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
-                    <div className='rounded-lg overflow-hidden relative  shrink-0 mt-6 sm:mt-0 bg-white'>
+                    <div className='rounded-lg overflow-hidden relative  shrink-0 mt-6 sm:mt-0'>
                       <Image
-                        className='p-4 h-64 w-64 object-cover md:h-72 md:w-72'
-                        src='/image/1.jpg'
+                        className='h-64 w-64 object-cover md:h-72 md:w-72'
+                        src='/image/promo/14.jpg'
                         width={288}
                         height={288}
                         alt='promo_img'
                       />
-                      <span className='absolute inset-0 bg-gray-200/30'></span>
                     </div>
                   </div>
                 </div>

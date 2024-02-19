@@ -25,12 +25,20 @@ const ListLinkFooter: React.FC<ListLinkFooterProps> = ({
               <h3 className='font-semibold text-gray-900'>Консультация:</h3>
               <div className='mt-2'>
                 <p>
-                  Телефон:{" "}
-                  <span className='whitespace-nowrap'>+7 (XXX) XXX-XX-XX</span>
+                  <a href='tel:+79050096888'>
+                    Телефон:{" "}
+                    <span className='whitespace-nowrap'>
+                      +7 (905) 009 68 88
+                    </span>
+                  </a>
                 </p>
                 <p>
-                  Email:{" "}
-                  <span className='whitespace-nowrap'>info@holodvdom.ru</span>
+                  <a href='mailto:info@holodvdom.ru'>
+                    Email:{" "}
+                    <span className='whitespace-nowrap'>
+                      info@holod-vdom.ru
+                    </span>
+                  </a>
                 </p>
               </div>
             </div>
@@ -38,12 +46,20 @@ const ListLinkFooter: React.FC<ListLinkFooterProps> = ({
               <h3 className='font-semibold text-gray-900'>Логистика:</h3>
               <div className='mt-2'>
                 <p>
-                  Телефон:{" "}
-                  <span className='whitespace-nowrap'>+7 (XXX) XXX-XX-XX</span>
+                  <a href='tel:+79050096888'>
+                    Телефон:{" "}
+                    <span className='whitespace-nowrap'>
+                      +7 (905) 009 68 88
+                    </span>
+                  </a>
                 </p>
                 <p>
-                  Email:{" "}
-                  <span className='whitespace-nowrap'>info@holodvdom.ru</span>
+                  <a href='mailto:logistics@holodvdom.ru'>
+                    Email:{" "}
+                    <span className='whitespace-nowrap'>
+                      logistics@holod-vdom.ru
+                    </span>
+                  </a>
                 </p>
               </div>
             </div>
@@ -51,12 +67,18 @@ const ListLinkFooter: React.FC<ListLinkFooterProps> = ({
               <h3 className='font-semibold text-gray-900'>Соцсети:</h3>
               <div className='mt-2'>
                 <p>
-                  Телеграм:{" "}
-                  <span className='whitespace-nowrap'>@holod_v_dom</span>
+                  <a href='https://t.me/kos_starshii'>
+                    Телеграм:{" "}
+                    <span className='whitespace-nowrap'>@holod_v_dom</span>
+                  </a>
                 </p>
                 <p>
-                  Whatsapp:{" "}
-                  <span className='whitespace-nowrap'>+7 (XXX) XXX-XX-XX</span>
+                  <a href='https://wa.me/79050096888'>
+                    Whatsapp:{" "}
+                    <span className='whitespace-nowrap'>
+                      +7 (905) 009 68 88
+                    </span>
+                  </a>
                 </p>
               </div>
             </div>

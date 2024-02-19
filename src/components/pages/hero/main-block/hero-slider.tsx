@@ -13,47 +13,18 @@ const HeroSlider: React.FC = () => {
               <Image
                 width={176}
                 height={256}
-                src='/image/1.jpg'
+                src='/image/promo/1.jpg'
                 alt=''
-                className='h-full w-full object-contain object-center'
+                className='h-full w-full object-cover object-center'
               />
             </div>
             <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
               <Image
                 width={176}
                 height={256}
-                src='/image/1.jpg'
+                src='/image/promo/16.jpg'
                 alt=''
-                className='h-full w-full object-contain object-center'
-              />
-            </div>
-          </div>
-          <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
-            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
-              <Image
-                width={176}
-                height={256}
-                src='/image/1.jpg'
-                alt=''
-                className='h-full w-full object-contain object-center'
-              />
-            </div>
-            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
-              <Image
-                width={176}
-                height={256}
-                src='/image/1.jpg'
-                alt=''
-                className='h-full w-full object-contain object-center'
-              />
-            </div>
-            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
-              <Image
-                width={176}
-                height={256}
-                src='/image/1.jpg'
-                alt=''
-                className='h-full w-full object-contain object-center'
+                className='h-full w-full object-cover object-center'
               />
             </div>
           </div>
@@ -62,18 +33,47 @@ const HeroSlider: React.FC = () => {
               <Image
                 width={176}
                 height={256}
-                src='/image/1.jpg'
+                src='/image/promo/5.jpg'
                 alt=''
-                className='h-full w-full object-contain object-center'
+                className='h-full w-full object-cover object-center'
               />
             </div>
             <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
               <Image
                 width={176}
                 height={256}
-                src='/image/1.jpg'
+                src='/image/promo/4.jpg'
                 alt=''
-                className='h-full w-full object-contain object-center'
+                className='h-full w-full object-cover object-center'
+              />
+            </div>
+            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
+              <Image
+                width={176}
+                height={256}
+                src='/image/promo/3.jpg'
+                alt=''
+                className='h-full w-full object-cover object-center'
+              />
+            </div>
+          </div>
+          <div className='grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8'>
+            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
+              <Image
+                width={176}
+                height={256}
+                src='/image/promo/15.jpg'
+                alt=''
+                className='h-full w-full object-cover object-center'
+              />
+            </div>
+            <div className='h-64 w-44 overflow-hidden rounded-lg border border-gray-200 bg-white'>
+              <Image
+                width={176}
+                height={256}
+                src='/image/promo/7.jpg'
+                alt=''
+                className='h-full w-full object-cover object-center'
               />
             </div>
           </div>

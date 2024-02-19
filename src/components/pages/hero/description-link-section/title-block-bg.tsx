@@ -5,11 +5,15 @@ import Link from "next/link";
 interface TitleBlockBgProps extends React.HtmlHTMLAttributes<HTMLElement> {
   title: string;
   link: { name: string; to: string };
+  img: string;
+  linear?: boolean;
 }
 const TitleBlockBg: React.FC<TitleBlockBgProps> = ({
   title,
   link,
   className,
+  linear,
+  img,
 }) => {
   return (
     <div
@@ -21,11 +25,13 @@ const TitleBlockBg: React.FC<TitleBlockBgProps> = ({
       <Image
         width={600}
         height={600}
-        src={"/image/1.jpg"}
+        src={img}
         alt={title + "_screen"}
         className='absolute w-full h-full object-cover object-center'
       />
-      <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50'></div>
+      {linear && (
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50'></div>
+      )}
       <div className='absolute inset-0 p-6 flex items-end'>
         <div>
           <h3 className='text-white font-semibold'>{title}</h3>
