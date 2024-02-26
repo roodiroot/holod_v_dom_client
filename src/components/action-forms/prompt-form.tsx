@@ -1,11 +1,12 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { sendMessage } from "@/lib/send-message";
 import { useState } from "react";
+import InputPhoneMask from "../ui/input-phone-mask";
 
 type InputsPropmptForm = {
   phone: string;
@@ -15,6 +16,7 @@ const PromptForm = () => {
   const [disabled, setDisabled] = useState(false);
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -34,20 +36,27 @@ const PromptForm = () => {
       .finally(() => setDisabled(false));
   };
 
-  const regExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+  const regExp = /^((8|\+7|\+)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
       className='mt-2 flex sm:max-w-md'
     >
-      <Input
-        {...register("phone", { pattern: regExp, required: true })}
-        id='phone'
-        type='text'
-        placeholder='Введите телефон'
-        className='col-span-3'
-        invalid={!!errors.phone}
-        inputMode='tel'
+      <Controller
+        name='phone'
+        control={control}
+        rules={{
+          required: true,
+          pattern: regExp,
+        }}
+        render={({ field: { value, onChange } }) => (
+          <InputPhoneMask
+            className='col-span-3'
+            value={value}
+            setValue={onChange}
+            invalide={!!errors.phone}
+          />
+        )}
       />
       <div className='ml-4 shrink-0'>
         <Button disabled={disabled} onClick={handleSubmit(onSubmit)}>

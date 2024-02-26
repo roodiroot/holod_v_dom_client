@@ -1,13 +1,14 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
+import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { DialogFooter } from "@/components/ui/dialog";
+import { sendMessage } from "@/lib/send-message";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
-import { sendMessage } from "@/lib/send-message";
 import { cn } from "@/lib/utils";
 
 type InputsContactForm = {
@@ -31,6 +32,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm<InputsContactForm>();
 
@@ -49,7 +51,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
       .finally(() => setDisabled(false));
   };
 
-  const regExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+  const regExp = /^((8|\+7|\+)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
   return (
     <>
@@ -76,13 +78,21 @@ const ModalForm: React.FC<ModalFormProps> = ({
           >
             Телефон*
           </Label>
-          <Input
-            {...register("phone", { pattern: regExp, required: true })}
-            id='phone'
-            placeholder='Введите телефон'
-            className='col-span-3'
-            invalid={!!errors.phone}
-            inputMode='tel'
+          <Controller
+            name='phone'
+            control={control}
+            rules={{
+              required: true,
+              pattern: regExp,
+            }}
+            render={({ field: { value, onChange } }) => (
+              <InputPhoneMask
+                className='col-span-3'
+                value={value}
+                setValue={onChange}
+                invalide={!!errors.phone}
+              />
+            )}
           />
         </div>
       </div>
