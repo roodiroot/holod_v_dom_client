@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
 interface TableWorksProps extends React.HtmlHTMLAttributes<HTMLElement> {
   description: string;
   title: string;
+  info?: string;
 }
 
 const TableWorks: React.FC<TableWorksProps> = ({
   description,
   title,
   className,
+  info,
   children,
   ...props
 }) => {
@@ -29,6 +31,7 @@ const TableWorks: React.FC<TableWorksProps> = ({
         </div>
       </div>
       {children}
+      {info && <p className='mt-6 text-sm text-balance'>{info}</p>}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 
 export const beautifulFont = localFont({
   src: [
@@ -57,7 +57,7 @@ export const beautifulFont = localFont({
 });
 
 // If loading a variable font, you don't need to specify the font weight
-export const montserrat = Montserrat({
+export const montserrat = Inter({
   subsets: ["cyrillic"],
   display: "swap",
 });

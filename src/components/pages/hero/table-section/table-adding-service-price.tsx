@@ -2,7 +2,7 @@ import TableRow from "./table-row";
 
 interface TableAddingServicePriceProps
   extends React.HtmlHTMLAttributes<HTMLElement> {
-  list: { title: string; price: number }[];
+  list: { title: string; price: number | string }[];
 }
 const TableAddingServicePrice: React.FC<TableAddingServicePriceProps> = ({
   list,

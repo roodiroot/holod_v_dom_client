@@ -5,7 +5,7 @@ import { format } from "@/lib/format";
 
 interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   title: string;
-  price: number;
+  price: number | string;
   model?: string;
 }
 const TableRow: React.FC<TableRowProps> = ({
@@ -32,7 +32,9 @@ const TableRow: React.FC<TableRowProps> = ({
       {model && (
         <td className='hidden px-3 py-4 text-sm md:table-cell'>{model}</td>
       )}
-      <td className='px-3 py-4 text-sm'>{format(price)}</td>
+      <td className='px-3 py-4 text-sm'>
+        {typeof price === "number" ? format(price) : price}
+      </td>
       <td className='py-4 pl-3 pr-4 text-right text-smfont-medium sm:pr-0 flex justify-end'>
         <ButtonText
           onClick={() =>
