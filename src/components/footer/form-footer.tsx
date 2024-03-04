@@ -13,8 +13,8 @@ const FormFooter = () => {
 
       <div className="mt-8">
         <a className="text-xs" href="https://matryoshka-studio.ru/">
-          Разработка и дизайн{" "}
-          <span className="text-accent">Веб студия "Матрёшка"</span>
+          Разработка и&nbsp;дизайн{" "}
+          <span className="text-accent">Веб студия &laquo;Матрёшка&raquo;</span>
         </a>
       </div>
     </div>
