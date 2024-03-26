@@ -12,7 +12,7 @@ const Home = () => (
     <PromoSection />
     <TableSection />
     <TestimonialsSection />
-    <SaleSection />
+    {/* <SaleSection /> */}
   </main>
 );
 export default Home;
