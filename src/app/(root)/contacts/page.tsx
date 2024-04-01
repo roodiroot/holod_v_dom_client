@@ -94,7 +94,7 @@ const Contacts = () => {
               </h3>
               <div className='border-l border-gray-200 pl-6 pt-2'>
                 <p>
-                  <a href='https://t.me/kos_starshii'>Телеграм: @holod_v_dom</a>
+                  <a href='https://t.me/holod_v_dom'>Телеграм: @holod_v_dom</a>
                 </p>
                 <p>
                   <a href='https://wa.me/79050096888'>
