@@ -47,6 +47,8 @@ const ModalForm: React.FC<ModalFormProps> = ({
           phone: "",
         });
         closeModal();
+        //@ts-ignore
+        ym(96992027, "reachGoal", "main_form");
       })
       .finally(() => setDisabled(false));
   };
@@ -55,31 +57,31 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   return (
     <>
-      <div {...props} className='grid gap-4 py-4'>
-        <div className='grid grid-cols-4 items-center gap-4'>
+      <div {...props} className="grid gap-4 py-4">
+        <div className="grid grid-cols-4 items-center gap-4">
           <Label
-            htmlFor='name'
+            htmlFor="name"
             className={cn("text-right", !!errors.name && "text-rose-500")}
           >
             Имя*
           </Label>
           <Input
             {...register("name", { required: true })}
-            id='name'
-            placeholder='Введите имя'
-            className='col-span-3'
+            id="name"
+            placeholder="Введите имя"
+            className="col-span-3"
             invalid={!!errors.name}
           />
         </div>
-        <div className='grid grid-cols-4 items-center gap-4'>
+        <div className="grid grid-cols-4 items-center gap-4">
           <Label
-            htmlFor='phone'
+            htmlFor="phone"
             className={cn("text-right", !!errors.phone && "text-rose-500")}
           >
             Телефон*
           </Label>
           <Controller
-            name='phone'
+            name="phone"
             control={control}
             rules={{
               required: true,
@@ -87,7 +89,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
             }}
             render={({ field: { value, onChange } }) => (
               <InputPhoneMask
-                className='col-span-3'
+                className="col-span-3"
                 value={value}
                 setValue={onChange}
                 invalide={!!errors.phone}
@@ -100,8 +102,8 @@ const ModalForm: React.FC<ModalFormProps> = ({
         <Button
           onClick={handleSubmit(onSubmit)}
           disabled={disabled}
-          size='lg'
-          type='submit'
+          size="lg"
+          type="submit"
         >
           Отправить**
         </Button>

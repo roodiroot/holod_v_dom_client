@@ -32,6 +32,8 @@ const PromptForm = () => {
         reset({
           phone: "",
         });
+        //@ts-ignore
+        ym(96992027, "reachGoal", "prompt_form");
       })
       .finally(() => setDisabled(false));
   };
@@ -40,10 +42,10 @@ const PromptForm = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className='mt-2 flex sm:max-w-md'
+      className="mt-2 flex sm:max-w-md"
     >
       <Controller
-        name='phone'
+        name="phone"
         control={control}
         rules={{
           required: true,
@@ -51,14 +53,14 @@ const PromptForm = () => {
         }}
         render={({ field: { value, onChange } }) => (
           <InputPhoneMask
-            className='col-span-3'
+            className="col-span-3"
             value={value}
             setValue={onChange}
             invalide={!!errors.phone}
           />
         )}
       />
-      <div className='ml-4 shrink-0'>
+      <div className="ml-4 shrink-0">
         <Button disabled={disabled} onClick={handleSubmit(onSubmit)}>
           Отправить
         </Button>
