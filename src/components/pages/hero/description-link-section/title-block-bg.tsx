@@ -1,6 +1,7 @@
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Icons } from "@/components/ui/icons";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 interface TitleBlockBgProps extends React.HtmlHTMLAttributes<HTMLElement> {
   title: string;
@@ -8,14 +9,25 @@ interface TitleBlockBgProps extends React.HtmlHTMLAttributes<HTMLElement> {
   img: string;
   linear?: boolean;
 }
-const TitleBlockBg: React.FC<TitleBlockBgProps> = ({ title, link, className, linear, img }) => {
+const TitleBlockBg: React.FC<TitleBlockBgProps> = ({
+  title,
+  link,
+  className,
+  linear,
+  img,
+}) => {
   return (
-    <div className={cn('relative overflow-hidden rounded-lg bg-white pb-0', className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-lg bg-white pb-0",
+        className
+      )}
+    >
       <Image
         width={600}
         height={600}
         src={img}
-        alt={title + '_screen'}
+        alt={title + "_screen"}
         className="absolute w-full h-full object-cover object-center"
       />
       {linear && (
@@ -26,7 +38,10 @@ const TitleBlockBg: React.FC<TitleBlockBgProps> = ({ title, link, className, lin
           <h3 className="text-white font-semibold">{title}</h3>
           <Link href={link?.to} className="mt-1 text-sm text-white">
             <span className="absolute inset-0"></span>
-            {link?.name}
+            <span className="flex gap-2 items-center">
+              {link?.name}
+              <Icons.link />
+            </span>
           </Link>
         </div>
       </div>

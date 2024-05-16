@@ -23,7 +23,7 @@ const DescriptionLinkSection: React.FC = () => (
           className="aspect-[2/1] sm:aspect-[1/1] sm:row-span-2"
           title="О нас"
           link={{
-            name: "Более 5 лет занимаемся климатом для Вас.",
+            name: "Изучите историю нашей компании и убедитесь, что мы — надежный партнер.",
             to: "/about",
           }}
         />
@@ -32,14 +32,17 @@ const DescriptionLinkSection: React.FC = () => (
           img="/image/ab.jpeg"
           className="aspect-[2/1] sm:aspect-auto  sm:h-full"
           title="Доставка"
-          link={{ name: "Бесплатно измерим и привезем.", to: "/delivery" }}
+          link={{
+            name: "Ознакомьтесь с условиями доставки и установки.",
+            to: "/delivery",
+          }}
         />
         <TitleBlockBg
           img="/image/promo/avito2.png"
           className="aspect-[2/1] sm:aspect-auto  bg-accent-600 sm:h-full"
           title="Мы на Авито"
           link={{
-            name: "Нас высоко оценивают наши клиенты.",
+            name: "Ознакомьтесь с нашим профилем на Avito.",
             to: "https://www.avito.ru/saransk/predlozheniya_uslug/ustanovka_konditsionerov_prodazha_obsluzhivanie_2312600300",
           }}
         />
