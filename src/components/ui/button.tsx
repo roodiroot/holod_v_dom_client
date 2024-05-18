@@ -13,7 +13,7 @@ const buttonVariants = cva(
         togleDefault: "bg-gray-400 text-white hover:bg-gray-400/90",
         destructive: "bg-red-500 text-gray-50 hover:bg-red-500/90",
         outline:
-          "border border-gray-200 bg-white hover:bg-gray-100 hover:text-gray-900",
+          "border-2 border-accent bg-white font-medium text-accent hover:bg-accent/20",
         secondary: "bg-gray-100 text-gray-900 hover:bg-gray-100/80",
         ghost: "hover:bg-gray-100 hover:text-gray-900",
         pale: "bg-white hover:bg-white/90 text-gray-950 font-medium",

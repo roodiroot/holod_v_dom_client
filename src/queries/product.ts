@@ -79,6 +79,7 @@ export const useFetchProductById = (id: string) => {
 export const useFetchOptionsByIdProducts = (id: string) => {
   return useQuery<
     {
+      name: string;
       options: any[];
       type: any;
       brand: any;
@@ -91,6 +92,7 @@ export const useFetchOptionsByIdProducts = (id: string) => {
     queryFn: () => fetchProductById(id),
     select: (data) => {
       return {
+        name: data.name,
         options: data.options,
         type: data.type.name,
         brand: data.brand.name,

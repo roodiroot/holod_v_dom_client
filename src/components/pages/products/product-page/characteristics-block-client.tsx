@@ -35,31 +35,36 @@ const CharacteristicsBlockClient: React.FC<CharacteristicsBlockProps> = ({
 
   return (
     <>
-      <div {...props} className='mt-3'>
-        <h2 className='sr-only'>Информация о товаре</h2>
-        <p className='text-3xl tracking-tight text-gray-900'>
+      <div {...props} className="mt-3">
+        <h2 className="sr-only">Информация о товаре</h2>
+        <p className="text-3xl tracking-tight text-gray-900">
           {format(data?.price)}
         </p>
       </div>
-      <div className='mt-3'>
-        <h3 className='sr-only'>Отзывы</h3>
-        <div className='flex items-center'>
-          <div className='flex items-center'>
+      <div className="mt-3">
+        <h3 className="sr-only">Отзывы</h3>
+        <div className="flex items-center">
+          <div className="flex items-center">
             <Stars />
           </div>
         </div>
       </div>
-      <div className='mt-6'>
-        <h3 className='sr-only'>Описание</h3>
+      <div className="mt-6">
+        <h3 className="sr-only">Описание</h3>
         <p>{data?.description}</p>
       </div>
-      <AddingBasket className='mt-10' prodId={productId} />
-      <section className='mt-12'>
-        <h2 className='sr-only'>Подробное описание</h2>
+      <AddingBasket
+        className="mt-10"
+        prodId={productId}
+        name={data?.name}
+        price={format(data?.price)}
+      />
+      <section className="mt-12">
+        <h2 className="sr-only">Подробное описание</h2>
         <Accordion
-          type='single'
+          type="single"
           collapsible
-          className='w-full border-t border-gray-200'
+          className="w-full border-t border-gray-200"
         >
           <MainCharacterTab
             characteristics={data?.options}

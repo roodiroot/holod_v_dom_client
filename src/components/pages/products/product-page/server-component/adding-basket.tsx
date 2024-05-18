@@ -6,19 +6,25 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import useBasket from "@/hooks/use-basket";
 import { cn } from "@/lib/utils";
+import useModal from "@/hooks/use-modal";
 
 interface AddingBasketProps extends React.HtmlHTMLAttributes<HTMLElement> {
   prodId: string;
+  name?: string;
+  price?: string;
 }
 
 const AddingBasket: React.FC<AddingBasketProps> = ({
   prodId,
+  name = "товар",
+  price = "0",
   className,
   ...props
 }) => {
   const router = useRouter();
   const { basketList, addElementBasketList, removeElementBasketList } =
     useBasket();
+  const { onOpen } = useModal();
 
   const togleProductBasket: () => void = () => {
     if (basketList.includes(prodId)) {
@@ -37,15 +43,29 @@ const AddingBasket: React.FC<AddingBasketProps> = ({
   };
 
   return (
-    <div {...props} className={cn("flex", className)}>
+    <div
+      {...props}
+      className={cn("flex flex-col gap-4 sm:flex-row", className)}
+    >
       <Button
         variant={basketList.includes(prodId) ? "togleDefault" : "default"}
         onClick={togleProductBasket}
-        size='lg'
+        size="lg"
       >
         {basketList.includes(prodId)
           ? "Удалить из корзины"
           : "Добавить в корзину"}
+      </Button>
+      <Button
+        onClick={() =>
+          onOpen(
+            `Рассрочка на ${name} на сумму ${price} руб. После отправки формы ожидайте звонка для уточнения деталей.`
+          )
+        }
+        variant="outline"
+        size="lg"
+      >
+        Рассрочка
       </Button>
     </div>
   );
