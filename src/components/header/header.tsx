@@ -4,6 +4,8 @@ import Logo from "@/components/ui/logo";
 import MobilMenuButton from "./mobil-menu-button";
 import BasketItem from "./basket-item";
 import SearchButton from "./search-button";
+import CityComponent from "./city";
+import NumberPhone from "./number";
 // import { Truck } from "lucide-react";
 const Header = () => {
   return (
@@ -59,12 +61,7 @@ const Header = () => {
                   Aкции
                 </Link>
                 <span className="h-6 w-[1px] bg-gray-200"></span>
-                <a
-                  href="tel:+79050096888"
-                  className="text-sm font-medium text-gray-700 transition hover:text-gray-800"
-                >
-                  +7 (905) 009 68 88
-                </a>
+                <NumberPhone className="text-sm font-medium text-gray-700 transition hover:text-gray-800" />
               </div>
               <div className="flex lg:ml-8">
                 <SearchButton />

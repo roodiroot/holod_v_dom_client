@@ -18,10 +18,18 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        "6xl": ["55px", { lineHeight: "100%" }],
+        "4xl": ["40px", { lineHeight: "100%" }],
+      },
       colors: {
         "accent-500": "#84B9F6",
         "accent-600": "#2F84E7",
         accent: "#2F84E7",
+      },
+      borderRadius: {
+        md: "16px",
+        lg: "32px",
       },
       keyframes: {
         "accordion-down": {

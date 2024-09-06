@@ -1,10 +1,16 @@
-import table_1 from "@/utils/price.json";
-import table_2 from "@/utils/additionalWorks.json";
 import TableWorks from "./table-works";
 import TableServicePrice from "./table-service-price";
 import TableAddingServicePrice from "./table-adding-service-price";
 
-const TableSection = () => {
+interface TableSectionProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+  listWorks: { title: string; model?: string; price: number | string }[];
+  listAddWorks: { title: string; price: number | string }[];
+}
+
+const TableSection: React.FC<TableSectionProps> = ({
+  listAddWorks,
+  listWorks,
+}) => {
   return (
     <div className="bg-white py-10">
       <div className="mx-auto max-w-7xl">
@@ -17,7 +23,7 @@ const TableSection = () => {
           title="Стоимость услуг"
           description="Детальные цены на установку кондиционеров и дополнительные услуги. Обращаем внимание, что цены на услуги могут меняться в зависимости от типа кондиционера и сложности монтажных работ. По этому для точного подсчета рекомендуем созвониться со специалистом."
         >
-          <TableServicePrice className="-mx-4 mt-8 sm:mx-0" list={table_1} />
+          <TableServicePrice className="-mx-4 mt-8 sm:mx-0" list={listWorks} />
         </TableWorks>
         <TableWorks
           className="mt-16"
@@ -26,7 +32,7 @@ const TableSection = () => {
         >
           <TableAddingServicePrice
             className="-mx-4 mt-8 sm:mx-0"
-            list={table_2}
+            list={listAddWorks}
           />
         </TableWorks>
       </div>

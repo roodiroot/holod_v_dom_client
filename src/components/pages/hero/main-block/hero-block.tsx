@@ -1,4 +1,3 @@
-import { beautifulFont } from "@/app/fonts";
 import HeroAction from "@/components/pages/hero/main-block/hero-action";
 import HeroSlider from "@/components/pages/hero/main-block/hero-slider";
 import { cn } from "@/lib/utils";
@@ -11,11 +10,11 @@ const HeroBlock = () => {
           <div className="sm:max-w-lg">
             <h1
               className={cn(
-                beautifulFont.className,
                 "text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               )}
             >
-              Установка систем кондиционирования в&nbsp;Мордовии.
+              Установка <span className="text-accent">систем</span>{" "}
+              кондиционирования в&nbsp;Мордовии.
             </h1>
             <p className="mt-4 text-xl ">
               Мы&nbsp;делаем климат в&nbsp;Ваших домах идеальным, лучшие модели,
@@ -24,7 +23,6 @@ const HeroBlock = () => {
           </div>
           <div className="mt-10">
             <HeroSlider />
-
             <HeroAction />
           </div>
         </div>

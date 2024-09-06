@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import TanstackProvider from "@/providers/TanstackProvider";
 import { Metrika } from "@/components/metrika/metrika";
-import { montserrat } from "./fonts";
+import { beautifulFont } from "./fonts";
 
 import "./globals.css";
 import { Suspense } from "react";
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={montserrat.className}>
+      <body className={beautifulFont.className}>
         <TanstackProvider>{children}</TanstackProvider>
         <Suspense>
           <Metrika />
