@@ -10,7 +10,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL("https://holodvdom.su/"),
   title: {
-    template: "%s | Продажа и монтаж кондиционеров в Саранске и по Мордовии",
+    template: "%s | Продажа и монтаж кондиционеров",
     default: 'Интернет магазин кондиционеров и сплит систем "Холод в Дом"',
   },
   description:

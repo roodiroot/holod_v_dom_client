@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import { sertifcates } from "@/utils/constance";
 
 import CTABlock from "@/components/pages/penza/cta-block/cta-block";
@@ -12,6 +14,12 @@ import TestimonialsSection from "@/components/pages/penza/testimonials-section/t
 import listWorks from "@/utils/price-penza.json";
 import listAddWorks from "@/utils/additionalWorks_penza.json";
 import reviews from "@/utils/rewiews-penza.json";
+
+export const metadata: Metadata = {
+  title: "Установка кондиционеров в Пензе — «Холод в дом»",
+  description:
+    "Профессиональная установка кондиционеров в Пензе. 12 месяцев гарантии, более 5 лет опыта и сотни положительных отзывов.",
+};
 
 const PenzaPage = () => (
   <main>

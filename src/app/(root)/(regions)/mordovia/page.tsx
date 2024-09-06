@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import { sertifcates } from "@/utils/constance";
 import HeroBlock from "@/components/pages/hero/main-block/hero-block";
 import GridList from "@/components/pages/hero/grid-section/grid-list";
@@ -9,6 +11,12 @@ import DescriptionLinkSection from "@/components/pages/hero/description-link-sec
 
 import listWorks from "@/utils/price.json";
 import listAddWorks from "@/utils/additionalWorks.json";
+
+export const metadata: Metadata = {
+  title: "Кондиционеры в Мордовии — «Холод в дом»",
+  description:
+    "Установка кондиционеров в Мордовии с гарантией 12 месяцев. Профессиональный монтаж и обслуживание от компании с 7-летним опытом.",
+};
 
 const MordoviaPage = () => (
   <main>

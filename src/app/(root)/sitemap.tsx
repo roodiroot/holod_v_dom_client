@@ -12,6 +12,18 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       priority: 1,
     },
     {
+      url: "https://holod-vdom.ru/penza",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
+      url: "https://holod-vdom.ru/mordovia",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
       url: "https://holod-vdom.ru/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
