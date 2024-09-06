@@ -7,12 +7,15 @@ import TableSection from "@/components/pages/hero/table-section/table-section";
 import TestimonialsSection from "@/components/pages/hero/testimonials-section/testimonials-section";
 import DescriptionLinkSection from "@/components/pages/hero/description-link-section/description-link-section";
 
+import listWorks from "@/utils/price.json";
+import listAddWorks from "@/utils/additionalWorks.json";
+
 const MordoviaPage = () => (
   <main>
     <HeroBlock />
     <DescriptionLinkSection />
     <PromoSection />
-    <TableSection />
+    <TableSection listAddWorks={listAddWorks} listWorks={listWorks} />
     <TestimonialsSection />
     <GridList list={sertifcates} />
     {/* <SaleSection /> */}
