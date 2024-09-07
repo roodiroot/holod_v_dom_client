@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 
 export const sendMessage = async (data: any) => {
-  const d = await fetch(`/api/order?text=${JSON.stringify(data)}`);
+  const d = await fetch(`/api/order?text=${JSON.stringify(`${data} test`)}`);
   if (d.status === 200) {
     toast.success("Ваша заявка принята!", {
       description: "Ожидайте звонка нашего специалиста.",
