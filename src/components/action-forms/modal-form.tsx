@@ -40,7 +40,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const onSubmit: SubmitHandler<InputsContactForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text, city })
+    sendMessage({ ...data, text, city: city || "undefined" })
       .then((d) => {
         if (!d) return;
         setDisabled(false);

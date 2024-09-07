@@ -33,19 +33,13 @@ export default function useGeoLocation(): {
   }, []);
 
   async function getLocation() {
-    const res = await axios.get<{
-      city: string;
-      country: string;
-      countryCode: string;
-      lat: number;
-      lon: number;
-      region: string;
-      regionCode: string;
-      timezone: string;
-      zip: string;
-    }>("http://ip-api.com/json");
+    const res = await fetch("http://ip-api.com/json", {
+      referrerPolicy: "unsafe-url",
+    });
+    const data = await res.json();
+    console.log(data);
 
-    if (res.status === 200) setLocationData(res.data);
+    if (data.status === "success") setLocationData(data);
   }
 
   return {

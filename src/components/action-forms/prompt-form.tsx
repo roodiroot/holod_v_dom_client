@@ -26,7 +26,11 @@ const PromptForm = () => {
 
   const onSubmit: SubmitHandler<InputsPropmptForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text: "Быстрая форма обратной связи", city })
+    sendMessage({
+      ...data,
+      text: "Быстрая форма обратной связи",
+      city: city || "undefined",
+    })
       .then((d) => {
         if (!d) return;
         setDisabled(false);
