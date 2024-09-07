@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { sendMessage } from "@/lib/send-message";
 import { useState } from "react";
 import InputPhoneMask from "../ui/input-phone-mask";
+import useGeoLocation from "@/hooks/use-geolokation";
 
 type InputsPropmptForm = {
   phone: string;
@@ -14,6 +15,7 @@ type InputsPropmptForm = {
 
 const PromptForm = () => {
   const [disabled, setDisabled] = useState(false);
+  const { city } = useGeoLocation();
 
   const {
     control,
@@ -25,7 +27,7 @@ const PromptForm = () => {
 
   const onSubmit: SubmitHandler<InputsPropmptForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text: "Быстрая форма обратной связи" })
+    sendMessage({ ...data, text: "Быстрая форма обратной связи", city })
       .then((d) => {
         if (!d) return;
         setDisabled(false);

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import useGeoLocation from "@/hooks/use-geolokation";
 
 type InputsContactForm = {
   name: string;
@@ -27,6 +28,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
   ...props
 }) => {
   const [disabled, setDisabled] = useState(false);
+  const { city } = useGeoLocation();
 
   const {
     register,
@@ -38,7 +40,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const onSubmit: SubmitHandler<InputsContactForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text })
+    sendMessage({ ...data, text, city })
       .then((d) => {
         if (!d) return;
         setDisabled(false);

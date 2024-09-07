@@ -19,7 +19,7 @@ const ModalWindow: React.FC = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='sm:max-w-[425px]'>
+      <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle
             className={cn(beautifulFont.className, "text-gray-900 text-2xl")}
@@ -33,9 +33,9 @@ const ModalWindow: React.FC = () => {
           </DialogDescription>
         </DialogHeader>
         <ModalForm closeModal={onClose} text={text} />
-        <div className='text-sm'>
+        <div className="text-sm">
           **Отправляя данную форму вы соглашаетесь с{" "}
-          <Link onClick={onClose} href={"/policy"} className='text-accent'>
+          <Link onClick={onClose} href={"/policy"} className="text-accent">
             политикой конфиденциальности
           </Link>
         </div>
