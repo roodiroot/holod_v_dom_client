@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import HeroAction from "@/components/pages/hero/main-block/hero-action";
 
-const HeroBlock = () => {
+const HeroBlock = ({ h1 }: { h1: React.ReactNode }) => {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="py-5  lg:py-10">
@@ -10,10 +10,7 @@ const HeroBlock = () => {
           <div className="flex justify-between flex-col gap-6 md:gap-8 md:flex-row">
             <div className="flex-1 min-h-full flex flex-col justify-center">
               <div className="sm:max-w-lg">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Продаем <span className="text-accent">и</span> устанавливаем
-                  кондиционеры в <span className="text-accent">Пензе</span>
-                </h1>
+                {h1}
                 <p className="mt-6 md:mt-8 text-xl ">
                   Идеальный климат в&nbsp;вашем доме: лучшие модели
                   кондиционеров, качественный авторизованный сервис

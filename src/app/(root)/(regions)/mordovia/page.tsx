@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { sertifcates } from "@/utils/constance";
-import HeroBlock from "@/components/pages/hero/main-block/hero-block";
+
 import GridList from "@/components/pages/hero/grid-section/grid-list";
 import PromoSection from "@/components/pages/hero/promo-section/promo-section";
 // import SaleSection from '@/components/pages/hero/sale-section/sale-section';
@@ -11,6 +11,7 @@ import DescriptionLinkSection from "@/components/pages/hero/description-link-sec
 
 import listWorks from "@/utils/price.json";
 import listAddWorks from "@/utils/additionalWorks.json";
+import HeroBlock from "@/components/pages/penza/main-block/hero-block";
 
 export const metadata: Metadata = {
   title: "Кондиционеры в Мордовии — «Холод в дом»",
@@ -18,9 +19,16 @@ export const metadata: Metadata = {
     "Установка кондиционеров в Мордовии с гарантией 12 месяцев. Профессиональный монтаж и обслуживание от компании с 7-летним опытом.",
 };
 
+const title = (
+  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+    Устанавливаем и <span className="text-accent">продаем кондиционеры</span> в
+    Мордовии
+  </h1>
+);
+
 const MordoviaPage = () => (
   <main>
-    <HeroBlock />
+    <HeroBlock h1={title} />
     <DescriptionLinkSection />
     <PromoSection />
     <TableSection listAddWorks={listAddWorks} listWorks={listWorks} />

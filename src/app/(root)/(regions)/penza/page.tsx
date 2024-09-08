@@ -21,9 +21,16 @@ export const metadata: Metadata = {
     "Профессиональная установка кондиционеров в Пензе. 12 месяцев гарантии, более 5 лет опыта и сотни положительных отзывов.",
 };
 
+const title = (
+  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+    Продаем <span className="text-accent">и</span> устанавливаем кондиционеры в{" "}
+    <span className="text-accent">Пензе</span>
+  </h1>
+);
+
 const PenzaPage = () => (
   <main>
-    <HeroBlock />
+    <HeroBlock h1={title} />
     <BenefitsBlock />
     <CTABlock />
     <FeaturesBlock />

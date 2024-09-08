@@ -50,7 +50,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
     sendMessage({
       ...data,
       text,
-      loc: pathname === "/penza" ? "Penza" : "Mordovia",
+      loc: pathname,
     })
       .then((d) => {
         if (!d) return;
