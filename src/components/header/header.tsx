@@ -4,9 +4,8 @@ import Logo from "@/components/ui/logo";
 import MobilMenuButton from "./mobil-menu-button";
 import BasketItem from "./basket-item";
 import SearchButton from "./search-button";
-import CityComponent from "./city";
-import NumberPhone from "./number";
-// import { Truck } from "lucide-react";
+import DinamicNumber from "./dinamic-number";
+
 const Header = () => {
   return (
     <header className="relative bg-white">
@@ -61,7 +60,7 @@ const Header = () => {
                   Aкции
                 </Link>
                 <span className="h-6 w-[1px] bg-gray-200"></span>
-                <NumberPhone className="text-sm font-medium text-gray-700 transition hover:text-gray-800" />
+                <DinamicNumber className="text-sm font-medium text-gray-700 transition hover:text-gray-800" />
               </div>
               <div className="flex lg:ml-8">
                 <SearchButton />

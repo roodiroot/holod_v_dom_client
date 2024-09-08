@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
-import InputPhoneMask from "@/components/ui/input-phone-mask";
-import { DialogFooter } from "@/components/ui/dialog";
-import { sendMessage } from "@/lib/send-message";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
-import useGeoLocation from "@/hooks/use-geolokation";
+import { Button } from "@/components/ui/button";
+import { sendMessage } from "@/lib/send-message";
+import { DialogFooter } from "@/components/ui/dialog";
+import InputPhoneMask from "@/components/ui/input-phone-mask";
 
 type InputsContactForm = {
   name: string;
@@ -28,7 +27,12 @@ const ModalForm: React.FC<ModalFormProps> = ({
   ...props
 }) => {
   const [disabled, setDisabled] = useState(false);
-  const { city } = useGeoLocation();
+  const [loc, setLoc] = useState<string | undefined>("");
+
+  useEffect(() => {
+    const location = localStorage.getItem("geo");
+    setLoc(location as string);
+  }, []);
 
   const {
     register,
@@ -40,7 +44,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const onSubmit: SubmitHandler<InputsContactForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text, city: city || "undefined" })
+    sendMessage({ ...data, text, location: loc })
       .then((d) => {
         if (!d) return;
         setDisabled(false);

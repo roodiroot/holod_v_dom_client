@@ -1,56 +1,49 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-/**
- * @returns {{ city: string | null, country: string | null, countryCode: string | null, lat: number | null, lon: number | null, region: string | null, regionCode: string | null, timezone: string | null, zip: string | null }}
- */
-export default function useGeoLocation(): {
-  city: string | null;
-  country: string | null;
-  countryCode: string | null;
-  lat: number | null;
-  lon: number | null;
-  region: string | null;
-  regionCode: string | null;
-  timezone: string | null;
-  zip: string | null;
-} {
-  const [locationData, setLocationData] = useState<{
-    city: string | null;
-    country: string | null;
-    countryCode: string | null;
-    lat: number | null;
-    lon: number | null;
-    region: string | null;
-    regionCode: string | null;
-    timezone: string | null;
-    zip: string | null;
-  } | null>(null);
+interface GeolocationState {
+  latitude: number | null;
+  longitude: number | null;
+  error: string | null;
+}
+
+function useGeolocation(): GeolocationState {
+  const [location, setLocation] = useState<GeolocationState>({
+    latitude: null,
+    longitude: null,
+    error: null,
+  });
 
   useEffect(() => {
-    getLocation();
+    if (!navigator.geolocation) {
+      setLocation((prevState) => ({
+        ...prevState,
+        error: "Geolocation is not supported by your browser",
+      }));
+      return;
+    }
+
+    const success = (position: GeolocationPosition) => {
+      setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        error: null,
+      });
+    };
+
+    const error = () => {
+      setLocation((prevState) => ({
+        ...prevState,
+        error: "Unable to retrieve your location",
+      }));
+    };
+
+    // Вызов метода получения текущей позиции
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    // Нет необходимости в очистке для getCurrentPosition, так как он не возвращает ID
   }, []);
 
-  async function getLocation() {
-    const res = await fetch("http://ip-api.com/json", {
-      referrerPolicy: "unsafe-url",
-    });
-    const data = await res.json();
-    console.log(data);
-
-    if (data.status === "success") setLocationData(data);
-  }
-
-  return {
-    city: locationData?.city as string | null,
-    country: locationData?.country as string | null,
-    countryCode: locationData?.countryCode as string | null,
-    lat: locationData?.lat as number | null,
-    lon: locationData?.lon as number | null,
-    region: locationData?.region as string | null,
-    regionCode: locationData?.regionCode as string | null,
-    timezone: locationData?.timezone as string | null,
-    zip: locationData?.zip as string | null,
-  };
+  return location;
 }
+
+export default useGeolocation;

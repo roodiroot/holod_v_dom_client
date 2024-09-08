@@ -2,6 +2,7 @@ import Link from "next/link";
 import BurgerBatton from "../ui/burger-batton";
 import MenuLinkHref from "./menu-link-href";
 import Logo from "../ui/logo";
+import DinamicNumber from "../header/dinamic-number";
 
 const MobilMenuContent: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
@@ -75,12 +76,7 @@ const MobilMenuContent: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         <div className="border-t border-gray-200 py-6 space-y-6">
           <MenuLinkHref label="акции" href="/sales" onClick={onClose} />
           <div className="flow-root">
-            <a
-              href={"tel:+79050096888"}
-              className="text-accent -m-2 block p-2 font-medium "
-            >
-              +7 (905) 009 68 88
-            </a>
+            <DinamicNumber className="text-accent -m-2 block p-2 font-medium " />
           </div>
         </div>
       </div>

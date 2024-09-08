@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { sendMessage } from "@/lib/send-message";
 import InputPhoneMask from "../ui/input-phone-mask";
-import useGeoLocation from "@/hooks/use-geolokation";
 
 type InputsPropmptForm = {
   phone: string;
@@ -14,7 +13,12 @@ type InputsPropmptForm = {
 
 const PromptForm = () => {
   const [disabled, setDisabled] = useState(false);
-  const { city } = useGeoLocation();
+  const [loc, setLoc] = useState<string | undefined>("");
+
+  useEffect(() => {
+    const location = localStorage.getItem("geo");
+    setLoc(location as string);
+  }, []);
 
   const {
     control,
@@ -29,7 +33,7 @@ const PromptForm = () => {
     sendMessage({
       ...data,
       text: "Быстрая форма обратной связи",
-      city: city || "undefined",
+      location: loc,
     })
       .then((d) => {
         if (!d) return;

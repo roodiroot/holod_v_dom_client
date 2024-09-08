@@ -7,6 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 export function Metrika() {
   const pathName = usePathname();
   const searchParams = useSearchParams();
+
   useEffect(() => {
     //@ts-ignore
     ym(96992027, "hit", window.location.href);
