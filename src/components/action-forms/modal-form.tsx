@@ -46,10 +46,11 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const onSubmit: SubmitHandler<InputsContactForm> = (data) => {
     setDisabled(true);
+    // console.log({ loc: pathname === "/penza" ? "Penza" : "Mordovia" });
     sendMessage({
       ...data,
       text,
-      loc: pathname === "/penza" ? "#Penza" : "#Mordovia",
+      loc: pathname === "/penza" ? "Penza" : "Mordovia",
     })
       .then((d) => {
         if (!d) return;

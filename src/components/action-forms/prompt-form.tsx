@@ -32,10 +32,11 @@ const PromptForm = () => {
 
   const onSubmit: SubmitHandler<InputsPropmptForm> = (data) => {
     setDisabled(true);
+
     sendMessage({
       ...data,
       text: "Быстрая форма обратной связи",
-      loc: pathname === "/penza" ? "#Penza" : "#Mordovia",
+      loc: pathname === "/penza" ? "Penza" : "Mordovia",
     })
       .then((d) => {
         if (!d) return;
