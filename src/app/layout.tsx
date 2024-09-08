@@ -29,11 +29,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <script
+        <Script
           src="https://api-maps.yandex.ru/2.1/?apikey=7713f803-31b7-4eaf-bd1a-e5ed1cd27a8a&lang=ru_RU"
           type="text/javascript"
-          async
-        ></script>
+          strategy="lazyOnload"
+        ></Script>
       </head>
       <body className={beautifulFont.className}>
         <TanstackProvider>{children}</TanstackProvider>
