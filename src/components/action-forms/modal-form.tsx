@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { sendMessage } from "@/lib/send-message";
 import { DialogFooter } from "@/components/ui/dialog";
 import InputPhoneMask from "@/components/ui/input-phone-mask";
+import { usePathname } from "next/navigation";
 
 type InputsContactForm = {
   name: string;
@@ -28,6 +29,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
 }) => {
   const [disabled, setDisabled] = useState(false);
   const [loc, setLoc] = useState<string | undefined>("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const location = localStorage.getItem("geo");
@@ -44,7 +46,11 @@ const ModalForm: React.FC<ModalFormProps> = ({
 
   const onSubmit: SubmitHandler<InputsContactForm> = (data) => {
     setDisabled(true);
-    sendMessage({ ...data, text, location: loc })
+    sendMessage({
+      ...data,
+      text,
+      loc: pathname === "/penza" ? "#Penza" : "#Mordovia",
+    })
       .then((d) => {
         if (!d) return;
         setDisabled(false);

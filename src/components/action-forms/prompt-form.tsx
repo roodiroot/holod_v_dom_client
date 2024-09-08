@@ -6,6 +6,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { sendMessage } from "@/lib/send-message";
 import InputPhoneMask from "../ui/input-phone-mask";
+import { usePathname } from "next/navigation";
 
 type InputsPropmptForm = {
   phone: string;
@@ -14,6 +15,7 @@ type InputsPropmptForm = {
 const PromptForm = () => {
   const [disabled, setDisabled] = useState(false);
   const [loc, setLoc] = useState<string | undefined>("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const location = localStorage.getItem("geo");
@@ -33,7 +35,7 @@ const PromptForm = () => {
     sendMessage({
       ...data,
       text: "Быстрая форма обратной связи",
-      location: loc,
+      loc: pathname === "/penza" ? "#Penza" : "#Mordovia",
     })
       .then((d) => {
         if (!d) return;
