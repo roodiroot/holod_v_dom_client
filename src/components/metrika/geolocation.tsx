@@ -5,9 +5,9 @@ import { useEffect } from "react";
 
 const GeoLocation = () => {
   const { latitude, longitude, error } = useGeolocation();
-  //@ts-ignore
   useEffect(() => {
-    if (!error) {
+    //@ts-ignore
+    if (!error && window.ymaps) {
       //@ts-ignore
       const myReverseGeocoder = window.ymaps.geocode([latitude, longitude]);
       myReverseGeocoder.then((res: any) => {
@@ -16,7 +16,7 @@ const GeoLocation = () => {
         localStorage.setItem("geo", geo);
       });
     }
-  }, []);
+  }, [latitude, longitude, error]);
   return null;
 };
 

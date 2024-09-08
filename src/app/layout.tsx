@@ -32,7 +32,6 @@ export default function RootLayout({
         <Script
           src="https://api-maps.yandex.ru/2.1/?apikey=7713f803-31b7-4eaf-bd1a-e5ed1cd27a8a&lang=ru_RU"
           type="text/javascript"
-          strategy="lazyOnload"
         ></Script>
       </head>
       <body className={beautifulFont.className}>
