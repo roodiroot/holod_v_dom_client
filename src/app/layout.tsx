@@ -6,8 +6,6 @@ import { beautifulFont } from "./fonts";
 
 import "./globals.css";
 import { Suspense } from "react";
-import GeoLocation from "@/components/metrika/geolocation";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://holodvdom.su/"),
@@ -28,19 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <head>
-        <Script
-          src="https://api-maps.yandex.ru/2.1/?apikey=7713f803-31b7-4eaf-bd1a-e5ed1cd27a8a&lang=ru_RU"
-          type="text/javascript"
-        ></Script>
-      </head>
       <body className={beautifulFont.className}>
         <TanstackProvider>{children}</TanstackProvider>
         <Suspense>
           <Metrika />
-        </Suspense>
-        <Suspense>
-          <GeoLocation />
         </Suspense>
       </body>
     </html>
