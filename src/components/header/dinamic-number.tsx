@@ -10,14 +10,14 @@ const DinamicNumber: React.FC<DinamicNumberProps> = ({ ...props }) => {
   console.log(pathname);
   if (pathname === "/penza") {
     return (
-      <a {...props} href="tel:+79050096885">
-        +7 (905) 009 68 85
+      <a {...props} href="tel:+79050095888">
+        +7 (905) 009 58 88
       </a>
     );
   }
   return (
-    <a {...props} href="tel:+79050095888">
-      +7 (905) 009 58 88
+    <a {...props} href="tel:+79050096888">
+      +7 (905) 009 68 88
     </a>
   );
 };
