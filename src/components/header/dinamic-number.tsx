@@ -16,8 +16,8 @@ const DinamicNumber: React.FC<DinamicNumberProps> = ({ ...props }) => {
     );
   }
   return (
-    <a {...props} href="tel:+79050096888">
-      +7 (905) 009 68 88
+    <a {...props} href="tel:+79050095888">
+      +7 (905) 009 58 88
     </a>
   );
 };
