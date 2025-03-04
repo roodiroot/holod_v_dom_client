@@ -5,6 +5,7 @@ import SearchWindow from "./search-window";
 import MobilFilters from "./mobil-filters";
 import ImageShow from "./image-show";
 import CallWidget from "./widgets/call-widget";
+import ModalOrder from "./modal-order";
 
 const Absolute = () => {
   return (
@@ -14,6 +15,7 @@ const Absolute = () => {
       <CallWidget />
       <MobilFilters />
       <ModalWindow />
+      <ModalOrder />
       <SearchWindow />
       <ImageShow />
     </>
