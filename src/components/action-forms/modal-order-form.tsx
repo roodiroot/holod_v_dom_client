@@ -61,7 +61,7 @@ const ModalOrderForm: React.FC<ModalOrderFormProps> = ({
         });
         closeModal();
         //@ts-ignore
-        ym(96992027, "reachGoal", "order");
+        window.ym(96992027, "reachGoal", "order");
       })
       .finally(() => setDisabled(false));
   };

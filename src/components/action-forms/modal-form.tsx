@@ -61,7 +61,7 @@ const ModalForm: React.FC<ModalFormProps> = ({
         });
         closeModal();
         //@ts-ignore
-        ym(96992027, "reachGoal", "main_form");
+        window.ym(96992027, "reachGoal", "main_form");
       })
       .finally(() => setDisabled(false));
   };

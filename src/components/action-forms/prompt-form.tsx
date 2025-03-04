@@ -44,7 +44,7 @@ const PromptForm = () => {
           phone: "",
         });
         //@ts-ignore
-        ym(96992027, "reachGoal", "prompt_form");
+        window.ym(96992027, "reachGoal", "prompt_form");
       })
       .finally(() => setDisabled(false));
   };
